@@ -38,7 +38,11 @@
  
         var readAsDataURL = function (file, scope) {
             var deferred = $q.defer();
-            if (file.size > 400000) {
+            if (file.type.slice(0, 5) !== "image"){
+                alert("not an image")
+                deferred.reject("not an image")
+            }
+            else if (file.size > 800000) {
                 alert("size too big")
                 deferred.reject("oversize")
             }

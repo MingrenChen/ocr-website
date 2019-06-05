@@ -8,7 +8,6 @@ var myfunc = function () {
                 if (evt.lengthComputable) {
                     var percentComplete = evt.loaded / evt.total;
                     //Do something with upload progress
-                    console.log()
                     $("#translate")[0].value = percentComplete
                 }
             }, false);
@@ -24,13 +23,14 @@ var myfunc = function () {
         },
         type: "POST",
         url: "http://api.mathpix.com/v3/latex",
-        data: JSON.stringify({src: document.getElementById("preview").src}),
+        data: JSON.stringify({src: document.getElementById("preview").src, ocr: ["math", "text"]}),
         headers: {
             app_id: 'chenmr9769_gmail_com', app_key: '9edc5e2b092ccc490f3a',
-            "Content-type": "application/json"
+            "Content-type": "application/json",
         },
     }).done(function (o) {
-        if (o.latex !== undefined)
+        console.log(o)
+        if (o.latex !== undefined && o.latex !== "")
             $("#latex")[0].value = o.latex
 
     })
