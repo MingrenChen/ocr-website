@@ -1,0 +1,22 @@
+/* Put your css in here */
+img {
+    width: 100%;
+}
+
+#img {
+    width: 200px;
+    border: black;
+}
+
+#result {
+    padding-left: 30px;
+}
+
+#latex {
+    width: 200px;
+    height: 200px;
+}
+
+#panel {
+    display: -webkit-inline-box;
+}

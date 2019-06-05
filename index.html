@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="ocr">
+
+  <head>
+      <meta charset="utf-8" />
+      <title>AngularJS OCR</title>
+      <script>document.write('<base href="' + document.location + '" />');</script>
+      <link rel="stylesheet" href="style.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+      <script data-require="angular.js@1.0.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js" data-semver="1.0.8"></script>
+      <script> var app = angular.module('ocr', []); </script>
+      <script src="upload.js"></script>
+      <script src="app.js"></script>
+      <script src="translate.js"></script>
+  </head>
+
+  <div ng-controller="UploadController">
+      <form>
+            <input type="file" ng-file-select="onFileSelect($files)" >
+      </form>
+      <div>upload progress:</div>
+
+      <progress value="{{progress}}"></progress></br>
+      <b>Preview:</b><br />
+
+
+      <div id="panel">
+          <div id="img">
+              <i ng-hide="imageSrc">No image choosed</i>
+              <img id="preview" ng-src="{{imageSrc}}" />
+          </div>
+
+
+        <div id="result">latex result:
+            <div>
+                <textarea id="latex" readonly>no math work detect</textarea>
+            </div>
+            <input type="button" value="translate" onclick="myfunc()" />
+            <div>translate progress:</div>
+            <progress id="translate" value="0"></progress></br>
+        </div>
+      </div>
+
+
+
+  </div>
+
+</html>
